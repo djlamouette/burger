@@ -14,12 +14,26 @@ export class burgerBuilder extends Component {
         }
     }
 
+    increaseIngredientHandler = (ingredient) => {
+        if (this.state.ingredients[ingredient] < 5) {
+            this.setState({ingredients[ingredient]: this.state.ingredients[ingredient]++})
+        }
+        
+    }
+
+    decreaseIngredientHandler = (ingredient) => {
+        console.log(ingredient)
+    }
+
 
     render() {
         return (
             <div className="burgerBuilder">
                 <Burger __ingredients={this.state.ingredients} />
-                <BuildControls __ingredients={this.state.ingredients}/>
+                <BuildControls
+                 __ingredients={this.state.ingredients}
+                 __increase={this.increaseIngredientHandler}
+                 __decrease={this.decreaseIngredientHandler}/>
                 
             </div>
         )
